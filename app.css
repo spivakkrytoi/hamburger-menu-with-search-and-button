@@ -1,5 +1,5 @@
-
 /* base styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,59 +8,62 @@
     text-decoration: none;
 }
 
-a {
+.text{
     color: white;
-}
-a:visited {
-    color: white;
-}
-a:hover {
-    color: #6F86FF;
 }
 
 body {
-    background-color: rgb(65, 71, 97);
+    background-color: #2D323C; /* Темний фон */
     font-family: sans-serif;
+    transition: 200ms;
 }
 
-.search{
+.search {
     display: flex;
     justify-content: space-between;
     margin-left: 35%;
 }
-input{
+
+/* Інпут */
+input {
     width: 500px;
     height: auto;
     text-align: start;
-    border: 2px solid rgb(44, 37, 49);
-    background-color: rgb(108, 114, 135);
+    border: 2px solid #222529; /* Підкреслимо межі */
+    background-color: #585F73; /* М'якший сірий фон інпуту */
     border-radius: 1.5rem;
+    transition: 200ms;
 }
-input:hover{
-    background-color: rgb(149, 147, 153);
+
+input:hover {
+    background-color: #878C9A; /* Світліший сірий на ховер */
     transition: 300ms;
 }
-button{
+
+/* Кнопка */
+button {
     width: 80px;
     height: 35px;
     border-radius: 1.25rem;
-    border: 1px solid white;
+    border: 1px solid #F5F5F5; /* Тонша світла межа */
     margin-top: 10px;
     text-align: center;
-    background-color: rgb(65, 71, 97);
+    background-color: #282D3C; /* Такий же як фон */
     margin-left: 10px;
+    transition: 200ms;
 }
-button:hover{
-    border: 1px solid black;
-    color: black;
-    background-color: rgb(171, 186, 255);
+
+button:hover {
+    border: 1px solid #333; /* Чорна межа на ховер */
+    color: #333; /* Темний текст */
+    background-color: #7882B4; /* М'який світло-синій */
     transition: 300ms;
 }
 
-
 /* off-screen-menu */
 .off-screen-menu {
-    background-color:  rgb(34, 37, 49);
+    transition: 200ms;
+    background-color: #000000; /* М'якший темний фон */
     height: 100vh;
     width: 100%;
     max-width: 450px;
@@ -69,38 +72,38 @@ button:hover{
     right: -450px;
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
     justify-content: center;
     text-align: center;
     font-size: 3rem;
     transition: .3s ease;
 }
+
 .off-screen-menu.active {
     right: 0;
 }
-
-
 
 /* nav */
 nav {
     padding: 1rem;
     display: flex;
-    background-color: rgb(34, 37, 49);
+    background-color: #282D3C; /* М'якший темний фон */
+    transition: 200ms;
+    color: white;
 }
 
-
-
-/* ham menu */
+/* Бургер-меню */
 .ham-menu {
     height: 50px;
     width: 40px;
     margin-left: auto;
     position: relative;
 }
+
 .ham-menu span {
     height: 5px;
     width: 100%;
-    background-color: #6F86FF;
+    background-color: #F0F0F0; /* Темно-сірий для ліній бургер-меню */
     border-radius: 25px;
     position: absolute;
     left: 50%;
@@ -108,23 +111,79 @@ nav {
     transform: translate(-50%, -50%);
     transition: .3s ease;
 }
+
 .ham-menu span:nth-child(1) {
     top: 25%;
 }
+
 .ham-menu span:nth-child(3) {
     top: 75%;
 }
+
 .ham-menu.active span {
-    background-color: white;
+    background-color: #F0F0F0; /* Темно-сірий для ліній бургер-меню */
 }
+
 .ham-menu.active span:nth-child(1) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
 }
+
 .ham-menu.active span:nth-child(2) {
     opacity: 0;
 }
+
 .ham-menu.active span:nth-child(3) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
 }
+
+.ham-menu.active {
+    color: #F0F0F0; /* Темний текст для бургер-меню */
+}
+
+/* Кнопка зміни теми */
+.theme {
+    width: 50px;
+    height: 50px;
+    border-radius: 1.25rem;
+}
+
+/* Активна тема */
+body.active {
+    background-color: #F5F5F5; /* Світлий фон у світлій темі */
+    transition: 200ms;
+}
+
+body.active input {
+    background-color: #FFFFFF; /* Білий фон інпуту в світлій темі */
+    border: 2px solid #CCCCCC; /* Світло-сіра обводка */
+}
+
+body.active input:hover {
+    background-color: #CCCCCC; /* Світло-сірий на ховер */
+}
+
+body.active .theme {
+    background-color: #CCCCCC; /* Світло-сірий фон для кнопки зміни теми */
+    color: #000000; /* Темний текст для кнопки зміни теми */
+}
+
+body.active .search button {
+    background-color: #FFFFFF; /* Білий фон для кнопки пошуку */
+    border: 1px solid #CCCCCC; /* Світло-сіра обводка для кнопки пошуку */
+    color: #333333; /* Темний текст для кнопки пошуку */
+}
+
+body.active .search button:hover {
+    background-color: #E6E6E6; /* Світло-сірий на ховер для кнопки пошуку */
+}
+
+body.active .nav {
+    background-color: #B0B0B0; /* Світло-сірий фон для навбару в світлій темі */
+    color: #333333; /* Темний текст для навбару */
+}
+.off-screen-menu.active{
+    background-color: #C3C3C3;
+}
+
